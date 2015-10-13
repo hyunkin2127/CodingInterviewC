@@ -1,13 +1,13 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <iostream>
 #include "Queue.h"
 
-int n, cnt; // ¸ÊÀÇ Å©±â¿Í Ä«¿îÆ® º¯¼ö
-int map[10][10]; // ¸ÊÀ» ³ªÅ¸³»´Â 2Â÷¿ø ¹è¿­
-int x[100], y[100], l[100]; // ÁÂÇ¥¿Í ±æÀÌ¸¦ ´ãÀ» ¹è¿­
+int n, cnt; // ë§µì˜ í¬ê¸°ì™€ ì¹´ìš´íŠ¸ ë³€ìˆ˜
+int map[10][10]; // ë§µì„ ë‚˜íƒ€ë‚´ëŠ” 2ì°¨ì› ë°°ì—´
+int x[100], y[100], l[100]; // ì¢Œí‘œì™€ ê¸¸ì´ë¥¼ ë‹´ì„ ë°°ì—´
 
 
-int n, minLen; // ¸ÊÀÇ Å©±â¿Í ÃÖ¼Ò°ªÀ» ³ªÅ¸³»´Â º¯¼ö
+int n, minLen; // ë§µì˜ í¬ê¸°ì™€ ìµœì†Œê°’ì„ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜
 int Visited[10];
  
 void BFS(int u){
@@ -20,36 +20,36 @@ void BFS(int u){
     int temp = q->deQueue(0);
     for(int i=1; i<= n; i++){
       if(map[temp][i]==1 && Visited[i] !=1){
-        cout<<temp<<"¿¡¼­ "<<i<<"·Î ÀÌµ¿"<<endl;
+        cout<<temp<<"ì—ì„œ "<<i<<"ë¡œ ì´ë™"<<endl;
         q->enQueue(i);
       }
     }
   }
 }
 
-int n; // ÀÔ·ÂµÇ´Â Á¤Á¡ÀÇ ÃÖ´ñ°ª
-int rear, front; // Àü´Ü°ú ÈÄ´ÜÀ» ³ªÅ¸³»´Â º¯¼ö
-int map[30][30], queue[30], visit[30]; // ÀÎÁ¢ Çà·Ä°ú Å¥¿Í ¹æ¹® ¹è¿­
+int n; // ìž…ë ¥ë˜ëŠ” ì •ì ì˜ ìµœëŒ“ê°’
+int rear, front; // ì „ë‹¨ê³¼ í›„ë‹¨ì„ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜
+int map[30][30], queue[30], visit[30]; // ì¸ì ‘ í–‰ë ¬ê³¼ íì™€ ë°©ë¬¸ ë°°ì—´
 
 void bfs2(int v)
 {
   int i;
 
-  visit[v] = 1; // Á¤Á¡ v¸¦ ¹æ¹®Çß´Ù°í Ç¥½Ã
-  printf("%d¿¡¼­ ½ÃÀÛ\n", v);
-  queue[rear++] = v; // Å¥¿¡ v¸¦ »ðÀÔÇÏ°í ÈÄ´ÜÀ» 1 Áõ°¡½ÃÅ´
-  while (front < rear) // ÈÄ´ÜÀÌ Àü´Ü°ú °°°Å³ª ÀÛÀ¸¸é ·çÇÁ Å»Ãâ
+  visit[v] = 1; // ì •ì  vë¥¼ ë°©ë¬¸í–ˆë‹¤ê³  í‘œì‹œ
+  printf("%dì—ì„œ ì‹œìž‘\n", v);
+  queue[rear++] = v; // íì— vë¥¼ ì‚½ìž…í•˜ê³  í›„ë‹¨ì„ 1 ì¦ê°€ì‹œí‚´
+  while (front < rear) // í›„ë‹¨ì´ ì „ë‹¨ê³¼ ê°™ê±°ë‚˜ ìž‘ìœ¼ë©´ ë£¨í”„ íƒˆì¶œ
   {
-    // Å¥ÀÇ Ã¹¹øÂ°¿¡ ÀÖ´Â µ¥ÀÌÅÍ¸¦ Á¦¿ÜÇÏ°í Á¦¿ÜµÈ °ªÀ» °¡Á®¿À¸ç, Àü´Ü 1 Áõ°¡
+    // íì˜ ì²«ë²ˆì§¸ì— ìžˆëŠ” ë°ì´í„°ë¥¼ ì œì™¸í•˜ê³  ì œì™¸ëœ ê°’ì„ ê°€ì ¸ì˜¤ë©°, ì „ë‹¨ 1 ì¦ê°€
     v = queue[front++];
     for (i = 1; i <= n; i++)
     {
-      // Á¤Á¡ v¿Í Á¤Á¡ i°¡ ¸¸³ª°í, Á¤Á¡ i¸¦ ¹æ¹®ÇÏÁö ¾ÊÀº »óÅÂÀÏ °æ¿ì
+      // ì •ì  vì™€ ì •ì  iê°€ ë§Œë‚˜ê³ , ì •ì  ië¥¼ ë°©ë¬¸í•˜ì§€ ì•Šì€ ìƒíƒœì¼ ê²½ìš°
       if (map[v][i] == 1 && !visit[i])
       {
-        visit[i] = 1; // Á¤Á¡ i¸¦ ¹æ¹®Çß´Ù°í Ç¥½Ã
-        printf("%d¿¡¼­ %d·Î ÀÌµ¿\n", v, i);
-        queue[rear++] = i; // Å¥¿¡ i¸¦ »ðÀÔÇÏ°í ÈÄ´ÜÀ» 1 Áõ°¡½ÃÅ´
+        visit[i] = 1; // ì •ì  ië¥¼ ë°©ë¬¸í–ˆë‹¤ê³  í‘œì‹œ
+        printf("%dì—ì„œ %dë¡œ ì´ë™\n", v, i);
+        queue[rear++] = i; // íì— ië¥¼ ì‚½ìž…í•˜ê³  í›„ë‹¨ì„ 1 ì¦ê°€ì‹œí‚´
       }
     }
   }
@@ -58,7 +58,7 @@ void bfs2(int v)
 
 //int main()
 //{
-//  int start; // ½ÃÀÛ Á¤Á¡À» ³ªÅ¸³»´Â º¯¼ö
+//  int start; // ì‹œìž‘ ì •ì ì„ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜
 //  int v1, v2;
 //
 //  scanf_s("%d%d", &n, &start);
@@ -69,13 +69,13 @@ void bfs2(int v)
 //    if (v1 == 0 && v2 == 0) break;
 //    map[v1][v2] = map[v2][v1] = 1;
 //  }
-//  BFS(start); // BFS ½ÃÀÛ!
+//  BFS(start); // BFS ì‹œìž‘!
 //  cin>>start;
 //  return 0; 
 //}
 
 
-// Å¥¿¡ ÁÂÇ¥ Á¤º¸¿Í ±æÀÌ¸¦ »ðÀÔÇÏ´Â ÇÔ¼ö
+// íì— ì¢Œí‘œ ì •ë³´ì™€ ê¸¸ì´ë¥¼ ì‚½ìž…í•˜ëŠ” í•¨ìˆ˜
 void enqueue(int _x, int _y, int _l)
 {
   x[cnt] = _x;
@@ -87,36 +87,36 @@ void enqueue(int _x, int _y, int _l)
 void BFS(int _x, int _y){
   int pos = 0;
 
-  // ½ÃÀÛÁ¡ÀÇ ÁÂÇ¥ Á¤º¸¿Í ±æÀÌ¸¦ Å¥¿¡ »ðÀÔÇÑ´Ù
+  // ì‹œìž‘ì ì˜ ì¢Œí‘œ ì •ë³´ì™€ ê¸¸ì´ë¥¼ íì— ì‚½ìž…í•œë‹¤
   enqueue(_x, _y, 1);
-  // ´õ ÀÌ»ó ¹æ¹®ÇÒ ÁöÁ¡ÀÌ ¾ø°Å³ª, µµÂø ÁöÁ¡¿¡ µµÂøÇÏ¸é ·çÇÁ¸¦ Å»ÃâÇÑ´Ù
+  // ë” ì´ìƒ ë°©ë¬¸í•  ì§€ì ì´ ì—†ê±°ë‚˜, ë„ì°© ì§€ì ì— ë„ì°©í•˜ë©´ ë£¨í”„ë¥¼ íƒˆì¶œí•œë‹¤
   while (pos < cnt && (x[pos] != n - 1 || y[pos] != n - 1)){
     
-    // µÎ ¹ø ¹æ¹®ÇÏ°Ô ÇÏ¸é ¾ÈµÇ¹Ç·Î, ÀÌ¹Ì Áö³ª°¬´Ù´Â Ç¥½Ã¸¦ ÇØµÐ´Ù
+    // ë‘ ë²ˆ ë°©ë¬¸í•˜ê²Œ í•˜ë©´ ì•ˆë˜ë¯€ë¡œ, ì´ë¯¸ ì§€ë‚˜ê°”ë‹¤ëŠ” í‘œì‹œë¥¼ í•´ë‘”ë‹¤
     map[y[pos]][x[pos]] = 0;
 
-    // À§·Î °¥ ¼ö ÀÖ´Ù¸é, À§ ÁöÁ¡ÀÇ ÁÂÇ¥ Á¤º¸¿Í ±æÀÌ¸¦ Å¥¿¡ »ðÀÔÇÑ´Ù
+    // ìœ„ë¡œ ê°ˆ ìˆ˜ ìžˆë‹¤ë©´, ìœ„ ì§€ì ì˜ ì¢Œí‘œ ì •ë³´ì™€ ê¸¸ì´ë¥¼ íì— ì‚½ìž…í•œë‹¤
     if (y[pos] > 0 && map[y[pos] - 1][x[pos]] == 1)
       enqueue(x[pos], y[pos] - 1, l[pos] + 1);
-    // ¾Æ·¡·Î °¥ ¼ö ÀÖ´Ù¸é, ¾Æ·¡ ÁöÁ¡ÀÇ ÁÂÇ¥ Á¤º¸¿Í ±æÀÌ¸¦ Å¥¿¡ »ðÀÔÇÑ´Ù
+    // ì•„ëž˜ë¡œ ê°ˆ ìˆ˜ ìžˆë‹¤ë©´, ì•„ëž˜ ì§€ì ì˜ ì¢Œí‘œ ì •ë³´ì™€ ê¸¸ì´ë¥¼ íì— ì‚½ìž…í•œë‹¤
     if (y[pos] < n - 1 && map[y[pos] + 1][x[pos]] == 1)
       enqueue(x[pos], y[pos] + 1, l[pos] + 1);
-    // ¿ÞÂÊÀ¸·Î °¥ ¼ö ÀÖ´Ù¸é, ¿ÞÂÊ ÁöÁ¡ÀÇ ÁÂÇ¥ Á¤º¸¿Í ±æÀÌ¸¦ Å¥¿¡ »ðÀÔÇÑ´Ù
+    // ì™¼ìª½ìœ¼ë¡œ ê°ˆ ìˆ˜ ìžˆë‹¤ë©´, ì™¼ìª½ ì§€ì ì˜ ì¢Œí‘œ ì •ë³´ì™€ ê¸¸ì´ë¥¼ íì— ì‚½ìž…í•œë‹¤
     if (x[pos] > 0 && map[y[pos]][x[pos] - 1] == 1)
       enqueue(x[pos] - 1, y[pos], l[pos] + 1);
-    // ¿À¸¥ÂÊ·Î °¥ ¼ö ÀÖ´Ù¸é, ¿À¸¥ÂÊ ÁöÁ¡ÀÇ ÁÂÇ¥ Á¤º¸¿Í ±æÀÌ¸¦ Å¥¿¡ »ðÀÔÇÑ´Ù
+    // ì˜¤ë¥¸ìª½ë¡œ ê°ˆ ìˆ˜ ìžˆë‹¤ë©´, ì˜¤ë¥¸ìª½ ì§€ì ì˜ ì¢Œí‘œ ì •ë³´ì™€ ê¸¸ì´ë¥¼ íì— ì‚½ìž…í•œë‹¤
     if (x[pos] < n - 1 && map[y[pos]][x[pos] + 1] == 1)
       enqueue(x[pos] + 1, y[pos], l[pos] + 1);
 
-    // Å¥ÀÇ ´ÙÀ½ ¼ø¼­ÀÇ ÁöÁ¡À» ¹æ¹®ÇÑ´Ù
+    // íì˜ ë‹¤ìŒ ìˆœì„œì˜ ì§€ì ì„ ë°©ë¬¸í•œë‹¤
     pos++;
   }
 
-  // cnt°¡ posº¸´Ù Å©´Ù¸é, µµÂø ÁöÁ¡¿¡ ¹«»çÈ÷ µµÂøÇÑ °ÍÀÌ¶ó°í ¸»ÇÒ ¼ö ÀÖ´Ù.
-  // À§ÀÇ ¹Ýº¹¹®Àº µµÂøÁ¡¿¡ µµÂøÇÏ°Ô µÇ¸é ·çÇÁ¸¦ ¹Ù·Î ºüÁ®³ª¿À±â ¶§¹®¿¡,
-  // ±æÀÌ¸¦ »ðÀÔÇÏ´Â Å¥ÀÇ ¸¶Áö¸· ¿ä¼Ò°¡ ÃÖ´Ü °æ·ÎÀÇ ±æÀÌ¶ó°í ÇÒ ¼ö ÀÖ´Ù.
+  // cntê°€ posë³´ë‹¤ í¬ë‹¤ë©´, ë„ì°© ì§€ì ì— ë¬´ì‚¬ížˆ ë„ì°©í•œ ê²ƒì´ë¼ê³  ë§í•  ìˆ˜ ìžˆë‹¤.
+  // ìœ„ì˜ ë°˜ë³µë¬¸ì€ ë„ì°©ì ì— ë„ì°©í•˜ê²Œ ë˜ë©´ ë£¨í”„ë¥¼ ë°”ë¡œ ë¹ ì ¸ë‚˜ì˜¤ê¸° ë•Œë¬¸ì—,
+  // ê¸¸ì´ë¥¼ ì‚½ìž…í•˜ëŠ” íì˜ ë§ˆì§€ë§‰ ìš”ì†Œê°€ ìµœë‹¨ ê²½ë¡œì˜ ê¸¸ì´ë¼ê³  í•  ìˆ˜ ìžˆë‹¤.
   if (pos < cnt)
-    printf("ÃÖ´Ü °æ·Î ±æÀÌ: %d\n", l[pos]);
+    printf("ìµœë‹¨ ê²½ë¡œ ê¸¸ì´: %d\n", l[pos]);
 }
 
 int main()
@@ -128,7 +128,7 @@ int main()
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
       scanf("%d", &map[i][j]);
-  BFS(0, 0); // BFS ½ÃÀÛ!
+  BFS(0, 0); // BFS ì‹œìž‘!
 
   return 0;
 }

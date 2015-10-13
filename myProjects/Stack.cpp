@@ -1,19 +1,19 @@
-//C++·Î ÀÚ·á±¸Á¶ ±¸ÇöÇÏ±â 15.09.09
-//2. ½ºÅÃ
+ï»¿//C++ë¡œ ìžë£Œêµ¬ì¡° êµ¬í˜„í•˜ê¸° 15.09.09
+//2. ìŠ¤íƒ
 
-//½ºÅÃ ±¸Çö¿¡ ÇÊ¿äÇÑ °Íµé
-// push, pop±â´É, top°¡¸®Å³ Æ÷ÀÎÅÍ
-// 1.¹è¿­ ±â¹Ý 
-// 2.¿¬°á¸®½ºÆ® ±â¹Ý
+//ìŠ¤íƒ êµ¬í˜„ì— í•„ìš”í•œ ê²ƒë“¤
+// push, popê¸°ëŠ¥, topê°€ë¦¬í‚¬ í¬ì¸í„°
+// 1.ë°°ì—´ ê¸°ë°˜ 
+// 2.ì—°ê²°ë¦¬ìŠ¤íŠ¸ ê¸°ë°˜
  
 
-//1. ½ºÅÃ±â¹Ý ¹è¿­
+//1. ìŠ¤íƒê¸°ë°˜ ë°°ì—´
 
 #include "Stack.h"
 
 
 StackdqNode::Stack(int len) :len(len), top(0){
-  arr= new T[len]; //½ºÅÃÀ¸·Î ¾µ ¹è¿­ »ý¼º 
+  arr= new T[len]; //ìŠ¤íƒìœ¼ë¡œ ì“¸ ë°°ì—´ ìƒì„± 
 }
 
 

@@ -1,4 +1,4 @@
-// √‚√≥ : http://exynoa.tistory.com/249
+Ôªø// Ï∂úÏ≤ò : http://exynoa.tistory.com/249
 
 #include <iostream>
 #include <cstdlib>
@@ -44,7 +44,7 @@ void Heap::Insert(int data)
   int parentPos = (int) ((usedPos - 1) / 2);
   if (usedsize == capacity)
   {
-    cout << "»¸¿Ã ∞°µÊ √°Ω¿¥œ¥Ÿ." << endl;
+    cout << "ÌûôÏù¥ Í∞ÄÎìù Ï∞ºÏäµÎãàÎã§." << endl;
     return;
   }
 

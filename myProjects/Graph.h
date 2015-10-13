@@ -1,7 +1,7 @@
-/**
+ï»¿/**
  * 15-10-13
  * created by heon 
- * ÀÚ·á±¸Á¶ graph
+ * ìë£Œêµ¬ì¡° graph
  */
 
 enum v{A=1, B=2, C=3, D=4, E=5};
@@ -16,21 +16,21 @@ private :
   int curEdgeNum;
 
 public: 
-  //Á÷Á¢ °£¼±, Á¤Á¡ Á¤º¸ ÇÒ´çÇÏ´Â°Í
+  //ì§ì ‘ ê°„ì„ , ì •ì  ì •ë³´ í• ë‹¹í•˜ëŠ”ê²ƒ
   Graph(int * vertex, int vNum, int edgeNum)
     :vertex(vertex), vNum(vNum), maxEdgeNum(edgeNum), curEdgeNum(0){
     //edges = new int[maxEdgeNum][3];
   }
 
   void addEdge(int from, int to, int value){
-  //new¸¦ ÀÌ¿ëÇÑ 2Â÷¿ø ¹è¿­ÀÇ µ¿ÀûÇÒ´çÀº http://krkr.tistory.com/3 ÂüÁ¶
+  //newë¥¼ ì´ìš©í•œ 2ì°¨ì› ë°°ì—´ì˜ ë™ì í• ë‹¹ì€ http://krkr.tistory.com/3 ì°¸ì¡°
   // int ** arr;
   // arr = new int*[2];
   // for(int i=0; i<3; i++) arr[i] = new int[3]; 
-  // int[2][3] ¹è¿­°ú µ¿ÀÏ
+  // int[2][3] ë°°ì—´ê³¼ ë™ì¼
   } 
 
-  //¹Û¿¡¼­ °£¼±, Á¤Á¡ Á¤º¸ ´Ù ¸¸µé¾î¼­ µéÀÌ´Â°Å
+  //ë°–ì—ì„œ ê°„ì„ , ì •ì  ì •ë³´ ë‹¤ ë§Œë“¤ì–´ì„œ ë“¤ì´ëŠ”ê±°
   Graph(int vNum, int maxEdgeNum,int * edges)
     :vNum(vNum), edges(edges), maxEdgeNum(maxEdgeNum){
   }

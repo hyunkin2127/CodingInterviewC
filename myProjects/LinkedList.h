@@ -1,9 +1,9 @@
-// C++ ÀÚ·á±¸Á¶ ±¸Çö 15.09.09
-// 1. ¿¬°á¸®½ºÆ®
+ï»¿// C++ ìë£Œêµ¬ì¡° êµ¬í˜„ 15.09.09
+// 1. ì—°ê²°ë¦¬ìŠ¤íŠ¸
 
-//¿¬°á¸®½ºÆ® ±¸Çö¿¡ ÇÊ¿äÇÑ°Íµé
-// 1.³ëµå
-// 2.¿¬°á¸®½ºÆ® Å¬·¡½º : »ğÀÔ, »èÁ¦, Å½»ö ++ ³ëµå Ãß°¡ À§Ä¡Á¶Á¤
+//ì—°ê²°ë¦¬ìŠ¤íŠ¸ êµ¬í˜„ì— í•„ìš”í•œê²ƒë“¤
+// 1.ë…¸ë“œ
+// 2.ì—°ê²°ë¦¬ìŠ¤íŠ¸ í´ë˜ìŠ¤ : ì‚½ì…, ì‚­ì œ, íƒìƒ‰ ++ ë…¸ë“œ ì¶”ê°€ ìœ„ì¹˜ì¡°ì •
  
 
 #include <iostream>
@@ -18,14 +18,14 @@ class LinkedList {
   private:
     Node * head;
     Node * last;
-    Node * temp;  // ÀÓ½ÃÀúÀå¼Ò·Î »ç¿ëµÉ Æ÷ÀÎÅÍ
+    Node * temp;  // ì„ì‹œì €ì¥ì†Œë¡œ ì‚¬ìš©ë  í¬ì¸í„°
     int len;
 
   public:
-    LinkedList(); // ±âº» »ı¼ºÀÚ 
+    LinkedList(); // ê¸°ë³¸ ìƒì„±ì 
     
-    void insertNode(int data); // »ğÀÔ.  ¼º°ø½Ã true, ½ÇÆĞ½Ã false  or  ¼º°ø½Ã »ğÀÔµÈ idx??? 
-    int& searchNode(int data); // °Ë»ö1 : µ¥ÀÌÅÍ·Î °Ë»ö // ¼º°ø true,false or »ğÀÔµÈ idx??
-    bool deleteNode(int data); // »èÁ¦1 : µ¥ÀÌÅÍ·Î »èÁ¦ // ¼º°ø½Ã true,false or »èÁ¦µÈ data?
+    void insertNode(int data); // ì‚½ì….  ì„±ê³µì‹œ true, ì‹¤íŒ¨ì‹œ false  or  ì„±ê³µì‹œ ì‚½ì…ëœ idx??? 
+    int& searchNode(int data); // ê²€ìƒ‰1 : ë°ì´í„°ë¡œ ê²€ìƒ‰ // ì„±ê³µ true,false or ì‚½ì…ëœ idx??
+    bool deleteNode(int data); // ì‚­ì œ1 : ë°ì´í„°ë¡œ ì‚­ì œ // ì„±ê³µì‹œ true,false or ì‚­ì œëœ data?
 
 };

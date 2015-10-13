@@ -1,33 +1,33 @@
-// Pesudo ÃâÃ³ : https://namu.wiki/w/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
+ï»¿// Pesudo ì¶œì²˜ : https://namu.wiki/w/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
 
 /** 
  * 15-10-13
  * created by heon
- * Dijkstra ÃÖ´Ü °Å¸® ¾Ë°í¸®Áò ±¸Çö 
+ * Dijkstra ìµœë‹¨ ê±°ë¦¬ ì•Œê³ ë¦¬ì¦˜ êµ¬í˜„ 
  */
 
-// ´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®ÁòÀº ´ÙÀ½°ú °°´Ù. P[A][B]´Â A¿Í B»çÀÌÀÇ °Å¸®¶ó°í ÇÏÀÚ.
-// 1.Ãâ¹ßÁ¡À¸·ÎºÎÅÍÀÇ ÃÖ´Ü°Å¸®¸¦ ÀúÀåÇÒ ¹è¿­ d[v]¸¦ ¸¸µé°í, Ãâ¹ß ³ëµå¿¡´Â 0À», 
-//   Ãâ¹ßÁ¡À» Á¦¿ÜÇÑ ´Ù¸¥ ³ëµåµé¿¡´Â ¸Å¿ì Å« °ª INF¸¦ Ã¤¿ö ³Ö´Â´Ù.
-//   º¸ÅëÀº ÃÖ´Ü°Å¸® ÀúÀå ¹è¿­ÀÇ ÀÌ·Ð»ó ÃÖ´ë°ª¿¡ ¸Â°Ô INF¸¦ Á¤ÇÑ´Ù. 
-//   ½Ç¹«¿¡¼­´Â º¸Åë dÀÇ ¿ø¼Ò Å¸ÀÔ¿¡ ´ëÇÑ ÃÖ´ë°ªÀ¸·Î ¼³Á¤ÇÏ´Â Æí. [2][3]
-// 2.ÇöÀç³ëµå A¿¡ Ãâ¹ß³ëµå¸¦ ÀúÀåÇÑ´Ù.
-// 3.A·ÎºÎÅÍ °¥ ¼ö ÀÖ´Â ÀÓÀÇÀÇ ³ëµå B¿¡ ´ëÇØ, 
-//   d[A]+P[A][B][4]¿Í d[B][5]ÀÇ °ªÀ» ºñ±³ÇÑ´Ù.
-// 4.¸¸¾à d[A]+P[A][B]°¡ ´õ Âª´Ù¸é, d[B]ÀÇ °ªÀ» ÀÌ °ªÀ¸·Î °»½Å½ÃÅ²´Ù.
-// 5.¸ðµç ÀÌ¿ô ³ëµå B¿¡ ´ëÇØ ÀÌ ÀÛ¾÷À» ¼öÇàÇÑ´Ù.
-// 6.AÀÇ »óÅÂ¸¦ "¹æ¹® ¿Ï·á"·Î ¹Ù²Û´Ù. ±×·¯¸é ÀÌÁ¦ ´õ ÀÌ»ó A´Â »ç¿ëÇÏÁö ¾Ê´Â´Ù.
-// 7.AÀÇ "¹Ì¹æ¹®"»óÅÂÀÎ ¸ðµç ÀÌ¿ô³ëµåµé Áß, Ãâ¹ßÁ¡À¸·ÎºÎÅÍÀÇ °Å¸®°¡ 
-//   Á¦ÀÏ ÂªÀº ÂªÀº ³ëµå ÇÏ³ª¸¦ °ñ¶ó¼­ ±× ³ëµå¸¦ A¿¡ ÀúÀåÇÑ´Ù.
-// 8.µµÂø³ëµå°¡ "¹æ¹® ¿Ï·á"»óÅÂ°¡ µÇ°Å³ª, È¤Àº ´õÀÌ»ó ¹Ì¹æ¹® »óÅÂÀÇ ³ëµå¸¦ 
-//   ¼±ÅÃÇÒ ¼ö ¾øÀ» ¶§±îÁö, 3~7ÀÇ °úÁ¤À» ¹Ýº¹ÇÑ´Ù.
+// ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜ì€ ë‹¤ìŒê³¼ ê°™ë‹¤. P[A][B]ëŠ” Aì™€ Bì‚¬ì´ì˜ ê±°ë¦¬ë¼ê³  í•˜ìž.
+// 1.ì¶œë°œì ìœ¼ë¡œë¶€í„°ì˜ ìµœë‹¨ê±°ë¦¬ë¥¼ ì €ìž¥í•  ë°°ì—´ d[v]ë¥¼ ë§Œë“¤ê³ , ì¶œë°œ ë…¸ë“œì—ëŠ” 0ì„, 
+//   ì¶œë°œì ì„ ì œì™¸í•œ ë‹¤ë¥¸ ë…¸ë“œë“¤ì—ëŠ” ë§¤ìš° í° ê°’ INFë¥¼ ì±„ì›Œ ë„£ëŠ”ë‹¤.
+//   ë³´í†µì€ ìµœë‹¨ê±°ë¦¬ ì €ìž¥ ë°°ì—´ì˜ ì´ë¡ ìƒ ìµœëŒ€ê°’ì— ë§žê²Œ INFë¥¼ ì •í•œë‹¤. 
+//   ì‹¤ë¬´ì—ì„œëŠ” ë³´í†µ dì˜ ì›ì†Œ íƒ€ìž…ì— ëŒ€í•œ ìµœëŒ€ê°’ìœ¼ë¡œ ì„¤ì •í•˜ëŠ” íŽ¸. [2][3]
+// 2.í˜„ìž¬ë…¸ë“œ Aì— ì¶œë°œë…¸ë“œë¥¼ ì €ìž¥í•œë‹¤.
+// 3.Aë¡œë¶€í„° ê°ˆ ìˆ˜ ìžˆëŠ” ìž„ì˜ì˜ ë…¸ë“œ Bì— ëŒ€í•´, 
+//   d[A]+P[A][B][4]ì™€ d[B][5]ì˜ ê°’ì„ ë¹„êµí•œë‹¤.
+// 4.ë§Œì•½ d[A]+P[A][B]ê°€ ë” ì§§ë‹¤ë©´, d[B]ì˜ ê°’ì„ ì´ ê°’ìœ¼ë¡œ ê°±ì‹ ì‹œí‚¨ë‹¤.
+// 5.ëª¨ë“  ì´ì›ƒ ë…¸ë“œ Bì— ëŒ€í•´ ì´ ìž‘ì—…ì„ ìˆ˜í–‰í•œë‹¤.
+// 6.Aì˜ ìƒíƒœë¥¼ "ë°©ë¬¸ ì™„ë£Œ"ë¡œ ë°”ê¾¼ë‹¤. ê·¸ëŸ¬ë©´ ì´ì œ ë” ì´ìƒ AëŠ” ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
+// 7.Aì˜ "ë¯¸ë°©ë¬¸"ìƒíƒœì¸ ëª¨ë“  ì´ì›ƒë…¸ë“œë“¤ ì¤‘, ì¶œë°œì ìœ¼ë¡œë¶€í„°ì˜ ê±°ë¦¬ê°€ 
+//   ì œì¼ ì§§ì€ ì§§ì€ ë…¸ë“œ í•˜ë‚˜ë¥¼ ê³¨ë¼ì„œ ê·¸ ë…¸ë“œë¥¼ Aì— ì €ìž¥í•œë‹¤.
+// 8.ë„ì°©ë…¸ë“œê°€ "ë°©ë¬¸ ì™„ë£Œ"ìƒíƒœê°€ ë˜ê±°ë‚˜, í˜¹ì€ ë”ì´ìƒ ë¯¸ë°©ë¬¸ ìƒíƒœì˜ ë…¸ë“œë¥¼ 
+//   ì„ íƒí•  ìˆ˜ ì—†ì„ ë•Œê¹Œì§€, 3~7ì˜ ê³¼ì •ì„ ë°˜ë³µí•œë‹¤.
 //
-// ÀÌ ÀÛ¾÷À» ¸¶Ä£ µÚ, µµÂø³ëµå¿¡ ÀúÀåµÈ °ªÀÌ ¹Ù·Î A·ÎºÎÅÍÀÇ ÃÖ´Ü°Å¸®ÀÌ´Ù. ¸¸¾à ÀÌ °ªÀÌ INF¶ó¸é, Áß°£¿¡ ±æÀÌ ²÷±ä °ÍÀÓÀ» ÀÇ¹ÌÇÑ´Ù.
+// ì´ ìž‘ì—…ì„ ë§ˆì¹œ ë’¤, ë„ì°©ë…¸ë“œì— ì €ìž¥ëœ ê°’ì´ ë°”ë¡œ Aë¡œë¶€í„°ì˜ ìµœë‹¨ê±°ë¦¬ì´ë‹¤. ë§Œì•½ ì´ ê°’ì´ INFë¼ë©´, ì¤‘ê°„ì— ê¸¸ì´ ëŠê¸´ ê²ƒìž„ì„ ì˜ë¯¸í•œë‹¤.
 
  
-//±¸ÇöÁß
+//êµ¬í˜„ì¤‘
 #include <iostream>
-#include <limits> //numeric_limits ¸¦ »ç¿ëÇÏ±â À§ÇÑ Çì´õÆÄÀÏ
+#include <limits> //numeric_limits ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ í—¤ë”íŒŒì¼
 #include "Graph.h"
 #include "MinHeap.cpp"
 
@@ -41,23 +41,23 @@ void Dijkstra(Graph g, int src){
   int * prev = new int[vNum];
   dist[src] = 0;
   
-  //¹æ¹®ÇÏÁö ¾ÊÀº Á¤Á¡µéÁß ÃÖ¼Òºñ¿ëÁ¤Á¡ ¼±ÅÃÀ» À§ÇÑ ÃÖ¼ÒÈü
+  //ë°©ë¬¸í•˜ì§€ ì•Šì€ ì •ì ë“¤ì¤‘ ìµœì†Œë¹„ìš©ì •ì  ì„ íƒì„ ìœ„í•œ ìµœì†Œíž™
   Heap * vHeap = new Heap(vNum); 
   
-  //Èü¿¡ ¹æ¹®ÇÏÁö ¾ÊÀº Á¤Á¡µé »ðÀÔ
+  //íž™ì— ë°©ë¬¸í•˜ì§€ ì•Šì€ ì •ì ë“¤ ì‚½ìž…
   int * edges = g.getEdges();
   for(int i=0; i<g.getEdgeNum(); i++){
 
-    if(edges[i] == src){ // src¸¦ Ãâ¹ßÁö·Î ÇÏ´Â °£¼±À» Ã£¾Æ¼­ 
-      vHeap->Insert(edges[i][1]); //±× ¸ñÀûÁö°¡ µÇ´Â Á¤Á¡µéÀ» Èü¿¡ ³Ö´Â´Ù. ?? °£¼±Á¤º¸´Â ?
+    if(edges[i] == src){ // srcë¥¼ ì¶œë°œì§€ë¡œ í•˜ëŠ” ê°„ì„ ì„ ì°¾ì•„ì„œ 
+      vHeap->Insert(edges[i][1]); //ê·¸ ëª©ì ì§€ê°€ ë˜ëŠ” ì •ì ë“¤ì„ íž™ì— ë„£ëŠ”ë‹¤. ?? ê°„ì„ ì •ë³´ëŠ” ?
     }
 
-    vHeap->Insert(i); // src¿¡ ¿¬°áµÈ Á¡Áß ¹æ¹®ÇÏÁö ¾ÊÀº Á¤Á¡À» »ðÀÔ(1 ~ vNum) Ã³À½ÀÌ´Ï ÀüºÎ´Ù ³ÖÀ½
+    vHeap->Insert(i); // srcì— ì—°ê²°ëœ ì ì¤‘ ë°©ë¬¸í•˜ì§€ ì•Šì€ ì •ì ì„ ì‚½ìž…(1 ~ vNum) ì²˜ìŒì´ë‹ˆ ì „ë¶€ë‹¤ ë„£ìŒ
   }
 
   for(int i=1; i<=vNum; i++){
     if(i != src){
-        dist[i] = numeric_limits<int>::max(); //intÇü ÃÖ´ë°ªÀ» ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö
+        dist[i] = numeric_limits<int>::max(); //intí˜• ìµœëŒ€ê°’ì„ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
         prev[i] = 0;
     }
   

@@ -1,7 +1,7 @@
-/**
+﻿/**
  * 15-10-09
  * created by heon 
- * �ڷᱸ�� AVL tree
+ * 자료구조 AVL tree
  */
 
 
