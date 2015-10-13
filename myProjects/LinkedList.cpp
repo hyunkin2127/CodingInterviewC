@@ -13,7 +13,7 @@ LinkedList dqNode::LinkedList() //생성자. 만약 주소값이 들어오면 깊은복사를??
   :head(NULL),last(NULL), temp(NULL){
 }
 
- 
+  
 void LinkedList dqNode::insertNode(T data){ //데이터 삽입
   //1) 만약 리스트가 비어있다면
   if(head == NULL || len == 0) {

@@ -15,7 +15,7 @@ private :
   int maxEdgeNum;
   int curEdgeNum;
 
-public:
+public: 
   //직접 간선, 정점 정보 할당하는것
   Graph(int * vertex, int vNum, int edgeNum)
     :vertex(vertex), vNum(vNum), maxEdgeNum(edgeNum), curEdgeNum(0){

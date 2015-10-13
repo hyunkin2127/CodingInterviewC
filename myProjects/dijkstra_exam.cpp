@@ -1,10 +1,11 @@
-// ÃâÃ³ : http://d4nnykim.tistory.com/184
-
+ï»¿// ì¶œì²˜ : http://d4nnykim.tistory.com/184
+// ì£¼ì„ ì¶”ê°€ì¤‘
 #include <iostream>
 #include <stack>
+#include <tchar.h>
 
 #define NMAX 	100
-#define MAX 99999999 // ¹«ÇÑ´ëÀÇ ¼ö
+#define MAX 99999999 // ë¬´í•œëŒ€ì˜ ìˆ˜
 
 using std::stack;
 using namespace std;
@@ -12,31 +13,31 @@ using namespace std;
 class Graph
 {
 private:
-	int length[NMAX][NMAX]; // ÀÎÁ¢Çà·Ä
-	int dist[NMAX]; // ÃÖ´Ü°Å¸®¸¦ ÀúÀåÇÒ ¹è¿­
-	bool s[NMAX]; // ÃÖ´Ü°æ·Î¸¦ ¹ß°ßÇÑ Á¤Á¡ÀÇ ÁıÇÕ
-	int path[NMAX]; // ÃÖ´Ü°æ·Î¸¦ ¿ªÃßÀûÇÒ ¹è¿­
+  int length[NMAX][NMAX]; // ì¸ì ‘í–‰ë ¬
+  int dist[NMAX]; // ìµœë‹¨ê±°ë¦¬ë¥¼ ì €ì¥í•  ë°°ì—´
+  bool s[NMAX]; // ìµœë‹¨ê²½ë¡œë¥¼ ë°œê²¬í•œ ì •ì ì˜ ì§‘í•©
+  int path[NMAX]; // ìµœë‹¨ê²½ë¡œë¥¼ ì—­ì¶”ì í•  ë°°ì—´
 
 public:
-	Graph(int size);
-	~Graph();
-	void ShortestPath(const int n, const int v);
-	void InsertEdge(int u, int v, int w);
-	void PrintVertex(const int n, const int v);
-	void PrintInfo(const int u, const int n);
-	int choose(const int n);
-	void Graph::Dijkstra(const int n, const int start);
+  Graph(int size);
+  ~Graph();
+  void ShortestPath(const int n, const int v);
+  void InsertEdge(int u, int v, int w);
+  void PrintVertex(const int n, const int v);
+  void PrintInfo(const int u, const int n);
+  int choose(const int n);
+  void Graph::Dijkstra(const int n, const int start);
 };
 
 Graph::Graph(int size)
 { 
-	// ´ë°¢¼±Àº ¸ğµÎ 0À¸·Î, ³ª¸ÓÁö´Â ¹«ÇÑ´ë·Î ÃÊ±âÈ­
-	for (int i = 0; i < size; i++)
-		for (int j = 0; j < size; j++)
-		{
-			length[i][j] = MAX;
-			if (i == j)	length[i][j] = 0;
-		}
+  // ëŒ€ê°ì„ ì€ ëª¨ë‘ 0ìœ¼ë¡œ, ë‚˜ë¨¸ì§€ëŠ” ë¬´í•œëŒ€ë¡œ ì´ˆê¸°í™”
+  for (int i = 0; i < size; i++)
+    for (int j = 0; j < size; j++)
+    {
+      length[i][j] = MAX;
+      if (i == j)	length[i][j] = 0;
+    }
 }
 Graph::~Graph()
 {
@@ -44,204 +45,209 @@ Graph::~Graph()
 
 void Graph::InsertEdge(int u, int v, int w) 
 {
-	length[u][v] = w; // u¿Í v »çÀÌ °£¼±ÀÇ °¡ÁßÄ¡´Â w
+  length[u][v] = w; // uì™€ v ì‚¬ì´ ê°„ì„ ì˜ ê°€ì¤‘ì¹˜ëŠ” w
 }
 
-// ÀÎÁ¢ Çà·Ä Ãâ·Â
+// ì¸ì ‘ í–‰ë ¬ ì¶œë ¥
 void Graph::PrintVertex(const int n, const int v)
 {
-	cout << "--------------------------------------------------------------------" << endl;
-	cout << "ÀÎÁ¢ Çà·Ä = " << endl;
+  cout << "--------------------------------------------------------------------" << endl;
+  cout << "ì¸ì ‘ í–‰ë ¬ = " << endl;
 
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			cout.width(2);
-			if (length[i][j] == MAX)
-				cout << "¡Ä" << " ";
-			else
-				cout << length[i][j] << " ";
-	
-		}
-		cout << endl;
-	}
-	cout << "--------------------------------------------------------------------" << endl;
-	cout << "ÃÖ´Ü °æ·Î" << endl;
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      cout.width(2); 
+      // int width(); : í˜„ì¬ ì„¤ì •ëœ í•„ë“œ í­ì„ ë¦¬í„´
+      // int width(int i); í•„ë“œ í­ì„ i ì¹¸ìœ¼ë¡œ ì„¤ì •í•˜ê³ , ì´ì „ì˜ í•„ë“œ í­ì„ ë¦¬í„´í•œë‹¤.
+      // width() ë©”ì„œë“œëŠ” ë°”ë¡œ ë‹¤ìŒì— ì¶œë ¥ë  í•­ëª©ì—ë§Œ ì˜í–¥ì„ ë¯¸ì¹œë‹¤. 
+      // ê·¸ í•­ëª©ì„ ì§€ë‚˜ë©´ í•„ë“œ í­ì€ ë‹¤ì‹œ default ê°’ìœ¼ë¡œ í™˜ì›ëœë‹¤.
+      
+      if(length[i][j] == MAX) cout << "âˆ" << " ";
+      else cout << length[i][j] << " ";
+    }
+    cout << endl;
+  }
+  cout << "--------------------------------------------------------------------" << endl;
+  cout << "ìµœë‹¨ ê²½ë¡œ" << endl;
 
-	for (int i = 0; i < n; i++)
-	{
-		if (i == v) // ÀÚ±âÀÚ½ÅÀ¸·ÎÀÇ ÃÖ´Ü °æ·Î´Â ¾øÀ½
-			continue;
+  for (int i = 0; i < n; i++)
+  {
+    if (i == v) // ìê¸°ìì‹ ìœ¼ë¡œì˜ ìµœë‹¨ ê²½ë¡œëŠ” ì—†ìŒ
+      continue;
 
-		stack<int> s; // ½ºÅÃÀ» ¼±¾ğÇÔ
+    stack<int> s; // ìŠ¤íƒì„ ì„ ì–¸í•¨
 
-		cout << "Á¤Á¡ " << i << ": ";
+    cout << "ì •ì  " << i << ": ";
 
-		if (dist[i] == MAX) // µµ´ŞÇÒ ¼ö ¾ø´Â Á¤Á¡¿¡ ´ëÇÑ Ã³¸®
-		{
-			cout << "µµ´ŞÇÒ ¼ö ¾øÀ½" << endl;
-			continue;
-		}
+    if (dist[i] == MAX) // ë„ë‹¬í•  ìˆ˜ ì—†ëŠ” ì •ì ì— ëŒ€í•œ ì²˜ë¦¬
+    {
+      cout << "ë„ë‹¬í•  ìˆ˜ ì—†ìŒ" << endl;
+      continue;
+    }
 
-		s.push(MAX); // End of Record
+    s.push(MAX); // End of Record
 
-		// ½ÃÀÛ : °¢ Á¤Á¡, Á¾·á : ½ÃÀÛ Á¤Á¡°ú °°Áö ¾ÊÀ» ¶§
-		// °ªÀÌ ÀÎµ¦½º°¡ µÇ´Â °ÍÀ» ¹İº¹ÇÏ¿© ¿ªÃßÀû
-		for (int j = i; j != v; j = path[j])
-			s.push(j); // ½ºÅÃ¿¡ ³ÖÀ½
+    // ì‹œì‘ : ê° ì •ì , ì¢…ë£Œ : ì‹œì‘ ì •ì ê³¼ ê°™ì§€ ì•Šì„ ë•Œ
+    // ê°’ì´ ì¸ë±ìŠ¤ê°€ ë˜ëŠ” ê²ƒì„ ë°˜ë³µí•˜ì—¬ ì—­ì¶”ì 
+    for (int j = i; j != v; j = path[j])
+      s.push(j); // ìŠ¤íƒì— ë„£ìŒ
 
-		cout << v;
+    cout << v;
 
-		// ½ºÅÃ¿¡¼­ ÇÏ³ª¾¿ »©¸é¼­ EOR±îÁö Ãâ·Â
-		for (int j; (j = s.top()) != MAX; s.pop())
-			cout << " -> " << j;
+    // ìŠ¤íƒì—ì„œ í•˜ë‚˜ì”© ë¹¼ë©´ì„œ EORê¹Œì§€ ì¶œë ¥
+    for (int j; (j = s.top()) != MAX; s.pop())
+      cout << " -> " << j;
 
-		cout << endl;
-	}
+    cout << endl;
+  }
 }
 
-// dist¿Í s ¹è¿­À» Ãâ·Â
+
+// distì™€ s ë°°ì—´ì„ ì¶œë ¥
 void Graph::PrintInfo(const int u, const int n)
 {
-	for (int i = 0; i < n; i++)
-	{
-		cout.width(2);
-		if (dist[i] == MAX)
-			cout << "¡Ä" << " ";
-		else
-			cout << dist[i] << " ";
-	}
+  for (int i = 0; i < n; i++)
+  {
+    cout.width(2);
+    if (dist[i] == MAX)
+      cout << "âˆ" << " ";
+    else
+      cout << dist[i] << " ";
+  }
 
-	cout << "  ";
+  cout << "  ";
 
-	for (int i = 0; i < n; i++)
-	{
-		cout.width(2);
-		cout << path[i] << " ";
-	}
+  for (int i = 0; i < n; i++)
+  {
+    cout.width(2);
+    cout << path[i] << " ";
+  }
 
-	cout << "    " << u << "     ";
+  cout << "    " << u << "     ";
 
-	for (int i = 0; i < n; i++)
-	{
-		if (s[i])
-		{
-			cout.width(2);
-			cout << i << " ";
-		}
-	}
-	cout << endl;
+  for (int i = 0; i < n; i++)
+  {
+    if (s[i])
+    {
+      cout.width(2);
+      cout << i << " ";
+    }
+  }
+  cout << endl;
 }
 
-// S¿¡ ¼ÓÇÏÁö ¾Ê´Â Á¤Á¡ Áß¿¡¼­ °¡Àå ÀÛÀº °ªÀ» Ã£¾Æ¼­ ¹İÈ¯
+// Sì— ì†í•˜ì§€ ì•ŠëŠ” ì •ì  ì¤‘ì—ì„œ ê°€ì¥ ì‘ì€ ê°’ì„ ì°¾ì•„ì„œ ë°˜í™˜
 int Graph::choose(const int n)
 {
-	int min = MAX;
-	int min_index = 0;
+  int min = MAX;
+  int min_index = 0;
 
-	for (int i = 0; i < n; i++)
-	{
-		if (!s[i]) // S¿¡ ¼ÓÇÏÁö ¾Ê´Â Á¤Á¡ Áß¿¡¼­
-		{
-			if (min > dist[i])
-			{
-				min = dist[i];
-				min_index = i; // °¡Àå ÀÛÀº °ªÀ» Ã£À½
-			}
-		}
-	}
+  for (int i = 0; i < n; i++)
+  {
+    if (!s[i]) // Sì— ì†í•˜ì§€ ì•ŠëŠ” ì •ì  ì¤‘ì—ì„œ
+    {
+      if (min > dist[i])
+      {
+        min = dist[i];
+        min_index = i; // ê°€ì¥ ì‘ì€ ê°’ì„ ì°¾ìŒ
+      }
+    }
+  }
 
-	return min_index; // °¡Àå ÀÛÀº °ªÀ» ¹İÈ¯
+  return min_index; // ê°€ì¥ ì‘ì€ ê°’ì„ ë°˜í™˜
 }
 
-// dist[j],0 <= j < nÀº n°³ÀÇ Á¤Á¡À» °¡Áø ¹æÇâ ±×·¡ÇÁ G¿¡¼­ Á¤Á¡ v·ÎºÎÅÍ Á¤Á¡ j
-// ±îÁöÀÇ ÃÖ´Ü °æ·Î ±æÀÌ·Î ¼³Á¤µÊ. °£¼±ÀÇ ±æÀÌ´Â length[i][j]·Î ÁÖ¾îÁü.
+// dist[j],0 <= j < nì€ nê°œì˜ ì •ì ì„ ê°€ì§„ ë°©í–¥ ê·¸ë˜í”„ Gì—ì„œ ì •ì  vë¡œë¶€í„° ì •ì  j
+// ê¹Œì§€ì˜ ìµœë‹¨ ê²½ë¡œ ê¸¸ì´ë¡œ ì„¤ì •ë¨. ê°„ì„ ì˜ ê¸¸ì´ëŠ” length[i][j]ë¡œ ì£¼ì–´ì§.
 void Graph::ShortestPath(const int n, const int v)
 {
-	// ÃÊ±âÈ­
-	for (int i = 0; i < n; i++) 
-	{
-		// ÃÊ±â°ª - °øÁıÇÕ
-		s[i] = false; 
-		// ÃÊ±â°ª - ½ÃÀÛÁ¤Á¡À¸·ÎºÎÅÍ Á÷Á¢ °¡´Â °Å¸®
-		dist[i] = length[v][i]; 
-		path[i] = v; // ÃÊ±â°ª - ½ÃÀÛÁ¤Á¡ÀÇ °ª
-	}
-	
-	s[v] = true; // ÀÚ±â ÀÚ½Å°úÀÇ ÃÖ´Ü °Å¸®´Â ÀÌ¹Ì Á¤ÇØÁü
-	dist[v] = 0; // ÀÚ±â ÀÚ½Å°úÀÇ ÃÖ´Ü °Å¸®´Â 0
+  // ì´ˆê¸°í™”
+  for (int i = 0; i < n; i++) 
+  {
+    // ì´ˆê¸°ê°’ - ê³µì§‘í•©
+    s[i] = false; 
+    // ì´ˆê¸°ê°’ - ì‹œì‘ì •ì ìœ¼ë¡œë¶€í„° ì§ì ‘ ê°€ëŠ” ê±°ë¦¬
+    dist[i] = length[v][i]; 
+    path[i] = v; // ì´ˆê¸°ê°’ - ì‹œì‘ì •ì ì˜ ê°’
+  }
 
-	cout << "--------------------------------------------------------------------" << endl;
-	cout << "dist[]=              path[]=            ¼±ÅÃÁ¤Á¡(u)   s[] =" << endl;
-	PrintInfo(0, n);
+  s[v] = true; // ìê¸° ìì‹ ê³¼ì˜ ìµœë‹¨ ê±°ë¦¬ëŠ” ì´ë¯¸ ì •í•´ì§
+  dist[v] = 0; // ìê¸° ìì‹ ê³¼ì˜ ìµœë‹¨ ê±°ë¦¬ëŠ” 0
 
-	// Á¤Á¡ v·ÎºÎÅÍ n-1°³ °æ·Î¸¦ °áÁ¤
-	for (int i = 0; i < n - 2; i++) 
-	{ 
-		int u = choose(n); // dist¿¡¼­ °¡Àå ÀÛÀº °ªÀ» Ã£À½
-		
-		// (¿©±â¼­ s[w]=FALSE) 
-		s[u] = true;
+  cout << "--------------------------------------------------------------------" << endl;
+  cout << "dist[]=              path[]=            ì„ íƒì •ì (u)   s[] =" << endl;
+  PrintInfo(0, n);
 
-		for (int w = 0; w < n; w++)
-		{
-			if(!s[w]) // S¿¡ ¼ÓÇÏÁö ¾Ê´Â Á¤Á¡ Áß¿¡¼­
-			{
-				// ´Ù¸¥ Á¤Á¡À» °ÅÃÄ¼­ °¡´Â °ÍÀÌ ´õ ºñ¿ëÀÌ Àû°Ô µç´Ù¸é
-				if(dist[u] + length[u][w] < dist[w])
-				{
-					// ±× Á¤Á¡À» ÅÃÇÔ
-					dist[w] = dist[u] + length[u][w];
-					// ¿ªÃßÀûÀ» À§ÇÑ path ¹è¿­¿¡ ÀúÀå
-					path[w] = u;
-				}
-			}
-		}
+  // ì •ì  vë¡œë¶€í„° n-1ê°œ ê²½ë¡œë¥¼ ê²°ì •
+  for (int i = 0; i < n - 2; i++) 
+  { 
+    int u = choose(n); // distì—ì„œ ê°€ì¥ ì‘ì€ ê°’ì„ ì°¾ìŒ
 
-		PrintInfo(u, n);
-	}
+    // (ì—¬ê¸°ì„œ s[w]=FALSE) 
+    s[u] = true;
+
+    for (int w = 0; w < n; w++)
+    {
+      if(!s[w]) // Sì— ì†í•˜ì§€ ì•ŠëŠ” ì •ì  ì¤‘ì—ì„œ
+      {
+        // ë‹¤ë¥¸ ì •ì ì„ ê±°ì³ì„œ ê°€ëŠ” ê²ƒì´ ë” ë¹„ìš©ì´ ì ê²Œ ë“ ë‹¤ë©´
+        if(dist[u] + length[u][w] < dist[w])
+        {
+          // ê·¸ ì •ì ì„ íƒí•¨
+          dist[w] = dist[u] + length[u][w];
+          // ì—­ì¶”ì ì„ ìœ„í•œ path ë°°ì—´ì— ì €ì¥
+          path[w] = u;
+        }
+      }
+    }
+
+    PrintInfo(u, n);
+  }
 } 
-
-// ÇÑ Á¤Á¡¿¡¼­ ´Ù¸¥ ¸ğµç Á¤Á¡À¸·Î °¡´Â ÃÖ´Ü °æ·Î¸¦ ±¸ÇÔ
+ 
+// í•œ ì •ì ì—ì„œ ë‹¤ë¥¸ ëª¨ë“  ì •ì ìœ¼ë¡œ ê°€ëŠ” ìµœë‹¨ ê²½ë¡œë¥¼ êµ¬í•¨
 void Graph::Dijkstra(const int n, const int start)
 {
-	ShortestPath(n, start); // Á¤Á¡ 0¿¡¼­ÀÇ ÃÖ´Ü °æ·Î
-	PrintVertex(n, start); // Ãâ·Â
+  ShortestPath(n, start); // ì •ì  0ì—ì„œì˜ ìµœë‹¨ ê²½ë¡œ
+  PrintVertex(n, start); // ì¶œë ¥
 }
 
 
-int _tmain(int argc, _TCHAR* argv[])
+// _tmain ê´€ë ¨ : http://yokang90.tistory.com/51
+int _tmain(int argc, _TCHAR* argv[]) 
 {
-	int n, edge ;  // n: Á¤Á¡ÀÇ ¼ö, e: °£¼±ÀÇ ¼ö
-	int k, u, v, w; // k: count º¯¼ö, u -> v·Î °¡´Â °£¼±, w:°¡ÁßÄ¡
-	int start; // ½ÃÀÛ Á¤Á¡
-	
-	cout << "***************************" << endl;
-	cout << "Programmed by Daegyeong Kim" << endl;
-	cout << "student # : 32062105" << endl;
-	cout << "***************************" << endl;
+  int n, edge ;  // n: ì •ì ì˜ ìˆ˜, e: ê°„ì„ ì˜ ìˆ˜
+  int k, u, v, w; // k: count ë³€ìˆ˜, u -> vë¡œ ê°€ëŠ” ê°„ì„ , w:ê°€ì¤‘ì¹˜
+  int start; // ì‹œì‘ ì •ì 
 
-	cout << "Á¤Á¡ÀÇ ¼ö¿Í °£¼±ÀÇ ¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À: ";
-	cin >> n >> edge ;
+  cout << "***************************" << endl;
+  cout << "Programmed by Daegyeong Kim" << endl;
+  cout << "student # : 32062105" << endl;
+  cout << "***************************" << endl;
 
-	Graph g(n);
+  cout << "ì •ì ì˜ ìˆ˜ì™€ ê°„ì„ ì˜ ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤: ";
+  cin >> n >> edge ;
 
-	for (int i = 0; i < edge; i++) 
-	{
-		k = i + 1;
-		cout << k << "¹øÂ° °£¼±(u, v, w)¸¦ ÀÔ·Â > ";
-		cin >> u >> v >> w ;
-		g.InsertEdge(u, v, w);
-	}
+  Graph g(n);
 
-	cout << "½ÃÀÛ Á¤Á¡ ÀÔ·Â > ";
-	cin >> start;
+  for (int i = 0; i < edge; i++) 
+  {
+    k = i + 1;
+    cout << k << "ë²ˆì§¸ ê°„ì„ (u, v, w)ë¥¼ ì…ë ¥ > ";
+    cin >> u >> v >> w ;
+    g.InsertEdge(u, v, w);
+  }
 
-	g.Dijkstra(n, start);
+  cout << "ì‹œì‘ ì •ì  ì…ë ¥ > ";
+  cin >> start;
 
-	cout << endl;
+  g.Dijkstra(n, start);
 
-	return 0;
+  cout << endl;
+
+  return 0;
 }
-</int></stack></iostream>
+
+//</int></stack></iostream>

@@ -9,7 +9,7 @@ int x[100], y[100], l[100]; // 좌표와 길이를 담을 배열
 
 int n, minLen; // 맵의 크기와 최소값을 나타내는 변수
 int Visited[10];
-
+ 
 void BFS(int u){
   cout<<"call bfs"<<endl;
   Visited[u] = 1;

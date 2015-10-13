@@ -8,7 +8,7 @@
 // 2. 연결리스트 기반
 
 #include "Queue.h"
-
+ 
 
 Queue::Queue(int len):len(len), enqIndex(0), deqIndex(0){
   repository2 = new int[len];

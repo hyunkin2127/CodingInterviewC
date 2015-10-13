@@ -5,7 +5,7 @@
 // push, pop기능, top가리킬 포인터
 // 1.배열 기반 
 // 2.연결리스트 기반
-
+ 
 #include <iostream>
 #include <cstring>
 using namespace std;

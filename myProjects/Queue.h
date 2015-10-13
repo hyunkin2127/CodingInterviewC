@@ -6,7 +6,7 @@
 // enQueue, deQueue
 // 1. 배열기반
 // 2. 연결리스트 기반
-
+ 
 #ifndef __QUEUE_H__
 #define __QUEUE_H__
 
