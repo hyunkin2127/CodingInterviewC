@@ -1,3 +1,5 @@
+// √‚√≥ : http://exynoa.tistory.com/249
+
 #include <iostream>
 #include <cstdlib>
 
