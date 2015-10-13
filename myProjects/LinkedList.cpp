@@ -9,12 +9,12 @@
 #include "LinkedList.h"
 
 
-LinkedListdqNode::LinkedList() //생성자. 만약 주소값이 들어오면 깊은복사를??
+LinkedList dqNode::LinkedList() //생성자. 만약 주소값이 들어오면 깊은복사를??
   :head(NULL),last(NULL), temp(NULL){
 }
 
  
-void LinkedListdqNode::insertNode(T data){ //데이터 삽입
+void LinkedList dqNode::insertNode(T data){ //데이터 삽입
   //1) 만약 리스트가 비어있다면
   if(head == NULL || len == 0) {
     head = new Node(data);
@@ -37,7 +37,7 @@ void LinkedListdqNode::insertNode(T data){ //데이터 삽입
 }
 
 
-T& LinkedListdqNode::searchNode(T data){
+T& LinkedList dqNode::searchNode(T data){
   if(head == NULL || len == 0){//리스트가 비어있다면 
     cout<<"리스트가 비어있습니다"<<endl;
     return NULL;
@@ -56,7 +56,7 @@ T& LinkedListdqNode::searchNode(T data){
 }
 
 
-bool LinkedListdqNode::deleteNode(T data){
+bool LinkedList dqNode::deleteNode(T data){
   //1.삭제할 값이 없을때
   //2.삭제할 값이 헤드일때
   //3.삭제할 값이 헤드가 아닐때 

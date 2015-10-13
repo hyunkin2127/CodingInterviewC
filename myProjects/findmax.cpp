@@ -64,7 +64,4 @@ int main(void){
   findMaxArea(arr, 10);
   cin>>a;
   
-
-
-
 }

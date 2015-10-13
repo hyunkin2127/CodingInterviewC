@@ -15,10 +15,16 @@
     <ClCompile Include="BFS.cpp" />
     <ClCompile Include="bst.cpp" />
     <ClCompile Include="DFS.cpp" />
+    <ClCompile Include="dijkstra.cpp" />
+    <ClCompile Include="dijkstra_exam.cpp" />
     <ClCompile Include="find.cpp" />
     <ClCompile Include="findmax.cpp" />
+    <ClInclude Include="Graph.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MinHeap.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Tree.cpp" />
