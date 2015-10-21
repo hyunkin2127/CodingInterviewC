@@ -9,6 +9,9 @@
 #ifndef __NODE_H_
 #define __NODE_H_
 
+#include <iostream>
+// #include "utilities.h"
+using namespace std;
 
 class Node {
 
@@ -18,11 +21,13 @@ class Node {
     Node * left;
     Node * pNode;
   public :
-    Node();
+    Node(){};
+
     Node(int data):data(data){ 
       // 만약 data가 주소값일 경우 얕은 복사가 일어남
       //--> 만약 int가 주소값이라면 처리를 다르게하는 생성자를 추가해야하나 ?
-    }
+    };
+
     int getData() const{
       return data;
     };
@@ -30,10 +35,11 @@ class Node {
     void setLeftNode(Node * newNode){
       left = newNode;
     }
+
     void setRightNode(Node * newNode){
       right = newNode;
     }
 
 };
-#endif __NODE_H_
+#endif
 

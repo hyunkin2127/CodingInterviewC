@@ -80,13 +80,16 @@
     <ClInclude Include="Queue.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="LinkedList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Graph.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

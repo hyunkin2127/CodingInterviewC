@@ -6,8 +6,6 @@
 // 2.연결리스트 클래스 : 삽입, 삭제, 탐색 ++ 노드 추가 위치조정
  
 
-#include <iostream>
-#include <cstring>
 #include "Node.h"
 
 using namespace std;
