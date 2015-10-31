@@ -22,31 +22,28 @@
     <Filter Include="소스 파일\Algorithm">
       <UniqueIdentifier>{ad8d246a-1600-4170-b0a1-26e3b827e4de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\dataStructure\Lists">
+      <UniqueIdentifier>{8a442edc-b51f-45a2-9d4d-06093a77ebaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\dataStructure\Tree">
+      <UniqueIdentifier>{6ad548de-2310-4fda-9ca8-c91952c092cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\dataStructure\Queue">
+      <UniqueIdentifier>{bb0b3be4-e80f-4d00-bf3f-54ecc57bf530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\dataStructure\Graph">
+      <UniqueIdentifier>{c59bc210-0f95-4a45-a290-231904dbaaeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\dataStructure\Stack">
+      <UniqueIdentifier>{ca241adf-adc1-4ea1-bd33-05e4ade3575c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ETC">
+      <UniqueIdentifier>{3885eeef-5ab3-4f24-a32d-7fb88b455996}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Queue.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="Stack.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="Tree.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="LinkedList.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="DFS.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="BFS.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
-    <ClCompile Include="AVLTree.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
     </ClCompile>
     <ClCompile Include="find.cpp">
       <Filter>소스 파일\questions</Filter>
@@ -57,17 +54,47 @@
     <ClCompile Include="winsElection.cpp">
       <Filter>소스 파일\questions</Filter>
     </ClCompile>
-    <ClCompile Include="bst.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
     <ClCompile Include="dijkstra.cpp">
       <Filter>소스 파일\Algorithm</Filter>
     </ClCompile>
-    <ClCompile Include="MinHeap.cpp">
-      <Filter>소스 파일\dataStructure</Filter>
-    </ClCompile>
     <ClCompile Include="dijkstra_exam.cpp">
       <Filter>소스 파일\Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="DFS.cpp">
+      <Filter>소스 파일\dataStructure\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="bst.cpp">
+      <Filter>소스 파일\dataStructure\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="BFS.cpp">
+      <Filter>소스 파일\dataStructure\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>소스 파일\dataStructure\Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>소스 파일\dataStructure\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>소스 파일\dataStructure\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>소스 파일\dataStructure\Lists</Filter>
+    </ClCompile>
+    <ClCompile Include="AVLTree.cpp">
+      <Filter>소스 파일\dataStructure\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="MinHeap.cpp">
+      <Filter>소스 파일\dataStructure\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="inheritence.cpp">
+      <Filter>소스 파일\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="stringExamples.cpp">
+      <Filter>소스 파일\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="innerSTL.cpp">
+      <Filter>소스 파일\ETC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

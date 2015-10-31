@@ -1,20 +1,107 @@
-﻿#include "Stack.h"
+﻿#include "LinkedList.h"
+#include "Stack.h"
 #include "Queue.h"
 #include "Tree.h"
 
+#include "inheritence.cpp"
+#include "stringExamples.cpp"
+#include "innerSTL.cpp"
 
+void testLL();
 void testStack();
 void testQueue();
 void testTree();
+void testInherit();
+int* testETC(int * a);
+void testString();
+void testSTL();
+
+
 
 int main(void){
 
+  //testLL();
+  //testStack();
+  //testQueue();
+  //testTree();
+  //testInherit();
+  //testString();
+  //testSTL();
+  int a;
+  cout<<sizeof(a)<<endl;
 
-  /*testStack();
-  cout<<"eeeeeeeeeeeeeeeeeeeeeeee"<<endl;
-  testQueue();*/
-  testTree();
+  findDuplicate("HelloHo");
+
+  //int arr[10] = {1,};
+
+  //cout<<arr<<endl;
+  //cout<<arr[0]<<endl;
+
+  //int * a = testETC(arr);
+
+
+  //cout<<a<<endl;
+  //cout<<a[0]<<endl;
+  //cout<<arr[0]<<endl;
+
+
   return 0;
+}
+
+void testSTL(){
+int arr[10] = { 3, 7, 4, 3, 5, 1, 9, 5, 6, 4 };
+cout << count( arr, arr + 10, 5 ) << endl;
+
+}
+
+void testString(){
+
+  string str = "Hello!!!";
+  cout<<str<<endl;
+  stringTest * st = new stringTest(str);
+  cout<<st->getStr()<<endl;
+
+}
+
+int* testETC(int * a){
+  // 배열 자체를 전달해도 배열의 주소값이 전달된다.
+  // 즉, int*를 전달하는것과 int a[]를 전달하는것이 같음
+  a[0] = 0;
+  return a;
+
+}
+
+void testInherit(){
+
+  A * aa = new A();
+  B * bb = new B();
+
+  aa = new B();
+  
+  aa->showA();
+  bb->showA();
+
+}
+
+
+void testLL(){
+  
+  LinkedList * ll = new LinkedList();
+  
+  ll->insertNode(new Node(1));
+  ll->insertNode(new Node(3));
+  ll->insertNode(new Node(5));
+  ll->insertNode(new Node(7));
+  ll->insertNode(new Node(9));
+  ll->insertNode(new Node(11));
+  ll->insertNode(new Node(13));
+
+  ll->deleteNode(11);
+
+  cout<<ll->searchNode(9)->getData()<<endl;;
+
+  ll->showList();
+
 }
 
 void testStack(){
@@ -59,7 +146,6 @@ void testTree(){
 
   cout<<"Out : "<<t->getHead()->left<<endl;
 
-
   t->insertNode(2);
   t->insertNode(3);
   t->insertNode(4);
@@ -75,8 +161,6 @@ void testTree(){
   
   //t->Treverse(t->getHead());
 
-  t->deleteNode(1);
-
-    t->Treverse(t->getHead());
+  t->Treverse(t->getHead());
 
 }
